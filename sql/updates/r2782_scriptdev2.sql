@@ -1,1 +1,1 @@
-UPDATE sd2_db_version SET version='ScriptDev2 (for C-MaNGOS 12426+) ';
+UPDATE sd2_db_version SET version='ScriptDev2 (for MaNGOS 12426+) ';
