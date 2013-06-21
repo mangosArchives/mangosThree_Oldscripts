@@ -16,7 +16,7 @@ index fc13e3a..592d773 100644
  #
  
 -# add_subdirectory(universal)
-+add_subdirectory(ScriptDev2)
++add_subdirectory(scripts)
 -- 
 1.7.3.1.msysgit.0
 
