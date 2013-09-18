@@ -81,9 +81,7 @@ extern void AddSC_boss_majordomo();
 extern void AddSC_boss_ragnaros();
 extern void AddSC_instance_molten_core();
 extern void AddSC_molten_core();
-extern void AddSC_boss_mr_smite();                          // deadmines
-extern void AddSC_deadmines();
-extern void AddSC_instance_deadmines();
+extern void AddSC_instance_deadmines();                     // deadmines
 extern void AddSC_gnomeregan();                             // gnomeregan
 extern void AddSC_boss_thermaplugg();
 extern void AddSC_instance_gnomeregan();
@@ -613,9 +611,7 @@ void AddScripts()
     AddSC_boss_ragnaros();
     AddSC_instance_molten_core();
     AddSC_molten_core();
-    AddSC_deadmines();                                      // deadmines
-    AddSC_boss_mr_smite();
-    AddSC_instance_deadmines();
+    AddSC_instance_deadmines();                             // deadmines				
     AddSC_gnomeregan();                                     // gnomeregan
     AddSC_boss_thermaplugg();
     AddSC_instance_gnomeregan();

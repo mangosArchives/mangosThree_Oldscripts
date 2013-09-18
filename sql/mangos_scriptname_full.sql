@@ -496,9 +496,7 @@ UPDATE creature_template SET ScriptName='npc_therylune' WHERE entry=3584;
 /* DARNASSUS */
 
 /* DEADMINES */
-UPDATE creature_template SET ScriptName='boss_mr_smite' WHERE entry=646;
 UPDATE instance_template SET ScriptName='instance_deadmines' WHERE map=36;
-UPDATE gameobject_template SET ScriptName='go_defias_cannon' WHERE entry=16398;
 
 /* DEADWIND PASS */
 
