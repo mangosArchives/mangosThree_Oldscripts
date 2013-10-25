@@ -5,6 +5,9 @@
 #ifndef SC_ESCORTAI_H
 #define SC_ESCORTAI_H
 
+// Remove this include, when EscortAI stores uint32 quest-id instead of Quest*
+#include "ObjectMgr.h"
+
 struct Escort_Waypoint
 {
     Escort_Waypoint(uint32 uiId, float fX, float fY, float fZ, uint32 uiWaitTime) :
@@ -58,6 +61,10 @@ struct MANGOS_DLL_DECL npc_escortAI : public ScriptedAI
         void EnterEvadeMode() override;
 
         void UpdateAI(const uint32) override;               // the "internal" update, calls UpdateEscortAI()
+
+        // Called when an AI Event is received
+        void ReceiveAIEvent(AIEventType /*eventType*/, Creature* /*pSender*/, Unit* /*pInvoker*/, uint32 /*uiMiscValue*/) override {}
+
         virtual void UpdateEscortAI(const uint32);          // used when it's needed to add code in update (abilities, scripted events, etc)
 
         void MovementInform(uint32, uint32) override;
