@@ -4391,7 +4391,7 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 -- -1 650 000 TRIAL OF THE CHAMPION
 
 -- -1 654 000 GILNEAS
-INSERT INTO `scriptdev2`.`script_texts` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`, `sound`, `type`, `language`, `emote`, `comment`) VALUES 
+INSERT INTO script_texts (entry, content_default, content_loc1, content_loc2, content_loc3, content_loc4, content_loc5, content_loc6, content_loc7, content_loc8, sound, type, language, emote, comment) VALUES 
 (-1654001, 'I want the perimeter secured and the gates manned by two guards at all times. No one gets in, no one gets out.', '', '', '', '', '', '', '', '', 0, 0, 7, 424, 'npc_prince_liam_greymane_phase1'),
 (-1654002, 'We protected Gilneas from the Scourge. We protected Gilneas during the Northgate rebellion. We will protect Gilneas from whatever this new threat may be.', '', '', '', '', '', '', '', '', 0, 0, 7, 424, 'npc_prince_liam_greymane_phase1'),
 (-1654003, 'Stand ready, guards! We don\'t know how many intruders we\'re dealing with, but the Headlands are overrun and we\'re cut off from the harbor towns. Expect to be outnumbered.', '', '', '', '', '', '', '', '', 0, 0, 7, 424, 'npc_prince_liam_greymane_phase1')
