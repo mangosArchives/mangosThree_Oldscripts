@@ -114,7 +114,10 @@ enum {
 	SAY_STORYLINE8		= -1654008,
 	
 	SAY_STORY_DELAY		= 30000,
-	SPELL_SHOOT			= 50092
+	SPELL_SHOOT			= 50092,
+	SPELL_CNOCKING		= 67869,
+	
+	QUEST_EVAQUATE_THE_MERCHANT_SQUARE = 14098
 };
 
 struct MANGOS_DLL_DECL npc_prince_liam_greymane_phase2AI : public ScriptedAI
@@ -234,6 +237,16 @@ struct MANGOS_DLL_DECL npc_prince_liam_greymane_phase2AI : public ScriptedAI
     }
 };
 
+bool QuestAccept_npc_prince_liam_greymane_phase2(Player* pPlayer, Creature* pCreature, const Quest* pQuest)
+{
+    if (pQuest->GetQuestId() == QUEST_EVAQUATE_THE_MERCHANT_SQUARE)
+    {
+		// TODO: fix player's spell for use Knocking spell properly without this!!!
+		pPlayer->addSpell(SPELL_CNOCKING, true, false, false, false);
+	}
+    return true;
+}
+
 CreatureAI* GetAI_npc_prince_liam_greymane_phase2(Creature* pCreature)
 {
     return new npc_prince_liam_greymane_phase2AI(pCreature);
@@ -322,6 +335,73 @@ CreatureAI* GetAI_rampaging_worgen(Creature* pCreature)
     return new rampaging_worgenAI(pCreature);
 }
 
+
+/*######
+## creature_frightened_citizen_quest
+######*/
+enum {
+	SAY_ON_ESCAPE1 			= -1654009,
+	SAY_ON_ESCAPE2 			= -1654010,
+	SAY_ON_ESCAPE3 			= -1654011,
+	SAY_ON_ESCAPE4 			= -1654012,
+	SAY_ON_ESCAPE5 			= -1654013,
+	SAY_ON_ESCAPE6 			= -1654014,
+	SAY_ON_ESCAPE7 			= -1654015,
+	SAY_ON_ESCAPE_DELAY		= 12000
+};
+
+struct MANGOS_DLL_DECL frightened_citizen_questAI : public ScriptedAI
+{
+    frightened_citizen_questAI(Creature* pCreature) : ScriptedAI(pCreature) {Reset();}
+
+	uint32 m_uiSayOnEscapeTimer;
+	bool m_bCanSayOnEscape;
+	
+    void Reset() override
+    {
+		m_uiSayOnEscapeTimer = SAY_ON_ESCAPE_DELAY;
+		m_bCanSayOnEscape = true;
+    }
+
+
+    void UpdateAI(const uint32 uiDiff) override
+    {
+		// Ready to say emote
+		if (m_bCanSayOnEscape)
+		{
+			m_uiSayOnEscapeTimer = SAY_ON_ESCAPE_DELAY;
+
+			// switch between 7 texts randomly
+			switch (urand(0, 6))
+			{
+				case 0: DoScriptText(SAY_ON_ESCAPE1, m_creature); break;
+				case 1: DoScriptText(SAY_ON_ESCAPE2, m_creature); break;
+				case 2: DoScriptText(SAY_ON_ESCAPE3, m_creature); break;
+				case 3: DoScriptText(SAY_ON_ESCAPE4, m_creature); break;
+				case 4: DoScriptText(SAY_ON_ESCAPE5, m_creature); break;
+				case 5: DoScriptText(SAY_ON_ESCAPE6, m_creature); break;
+				case 6: DoScriptText(SAY_ON_ESCAPE7, m_creature); break;
+			}
+
+			m_bCanSayOnEscape = false;
+		}
+
+		if (m_uiSayOnEscapeTimer < uiDiff)
+		{
+			m_bCanSayOnEscape = true;
+			m_uiSayOnEscapeTimer = SAY_ON_ESCAPE_DELAY;
+		}
+		else m_uiSayOnEscapeTimer -= uiDiff;
+
+    }
+};
+
+CreatureAI* GetAI_frightened_citizen_quest(Creature* pCreature)
+{
+    return new frightened_citizen_questAI(pCreature);
+}
+
+
 void AddSC_gilneas_city()
 {
     Script* pNewScript;
@@ -334,10 +414,16 @@ void AddSC_gilneas_city()
     pNewScript = new Script;
     pNewScript->Name = "npc_prince_liam_greymane_phase2";
     pNewScript->GetAI = &GetAI_npc_prince_liam_greymane_phase2;
+	pNewScript->pQuestAcceptNPC = &QuestAccept_npc_prince_liam_greymane_phase2;
     pNewScript->RegisterSelf();
 
     pNewScript = new Script;
     pNewScript->Name = "rampaging_worgen";
     pNewScript->GetAI = &GetAI_rampaging_worgen;
+    pNewScript->RegisterSelf();
+
+    pNewScript = new Script;
+    pNewScript->Name = "frightened_citizen_quest";
+    pNewScript->GetAI = &GetAI_frightened_citizen_quest;
     pNewScript->RegisterSelf();
 }

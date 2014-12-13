@@ -4391,16 +4391,22 @@ INSERT INTO script_texts (entry,content_default,sound,type,language,emote,commen
 -- -1 650 000 TRIAL OF THE CHAMPION
 
 -- -1 654 000 GILNEAS
-INSERT INTO script_texts (entry, content_default, content_loc1, content_loc2, content_loc3, content_loc4, content_loc5, content_loc6, content_loc7, content_loc8, sound, type, language, emote, comment) VALUES 
-(-1654001, 'I want the perimeter secured and the gates manned by two guards at all times. No one gets in, no one gets out.', '', '', '', '', '', '', '', '', 0, 0, 7, 424, 'npc_prince_liam_greymane_phase1'),
-(-1654002, 'We protected Gilneas from the Scourge. We protected Gilneas during the Northgate rebellion. We will protect Gilneas from whatever this new threat may be.', '', '', '', '', '', '', '', '', 0, 0, 7, 424, 'npc_prince_liam_greymane_phase1'),
-(-1654003, 'Stand ready, guards! We don\'t know how many intruders we\'re dealing with, but the Headlands are overrun and we\'re cut off from the harbor towns. Expect to be outnumbered.', '', '', '', '', '', '', '', '', 0, 0, 7, 424, 'npc_prince_liam_greymane_phase1')
-(-1654004, 'Stand your ground men!', '', '', '', '', '', '', '', '', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2'),
-(-1654005, 'Defeat these foul beasts!', '', '', '', '', '', '', '', '', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2'),
-(-1654006, 'Protect the Civilians!', '', '', '', '', '', '', '', '', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2'),
-(-1654007, 'Push them back!', '', '', '', '', '', '', '', '', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2'),
-(-1654008, 'Take heart men, we must protect our city!', '', '', '', '', '', '', '', '', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2');
-
+INSERT INTO script_texts (entry, content_default, sound, type, language, emote, comment) VALUES 
+(-1654001, 'I want the perimeter secured and the gates manned by two guards at all times. No one gets in, no one gets out.', 0, 0, 7, 424, 'npc_prince_liam_greymane_phase1'),
+(-1654002, 'We protected Gilneas from the Scourge. We protected Gilneas during the Northgate rebellion. We will protect Gilneas from whatever this new threat may be.', 0, 0, 7, 424, 'npc_prince_liam_greymane_phase1'),
+(-1654003, 'Stand ready, guards! We don\'t know how many intruders we\'re dealing with, but the Headlands are overrun and we\'re cut off from the harbor towns. Expect to be outnumbered.', 0, 0, 7, 424, 'npc_prince_liam_greymane_phase1'),
+(-1654004, 'Stand your ground men!', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2'),
+(-1654005, 'Defeat these foul beasts!', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2'),
+(-1654006, 'Protect the Civilians!', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2'),
+(-1654007, 'Push them back!', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2'),
+(-1654008, 'Take heart men, we must protect our city!', 0, 1, 7, 424, 'npc_prince_liam_greymane_phase2'),
+(-1654009, 'Protect me, please!', 0, 0, 7, 424, 'frightened_citizen_quest'),
+(-1654010, 'It\'s coming right for me!', 0, 0, 7, 424, 'frightened_citizen_quest'),
+(-1654011, 'What in the world? Let\'s get out of here!', 0, 0, 7, 424, 'frightened_citizen_quest'),
+(-1654012, 'Help!', 0, 0, 7, 424, 'frightened_citizen_quest'),
+(-1654013, 'Help me, please!', 0, 0, 7, 424, 'frightened_citizen_quest'),
+(-1654014, 'Worgen! Worgen everywhere!', 0, 0, 7, 424, 'frightened_citizen_quest'),
+(-1654015, 'Flee! They\'re everywhere!', 0, 0, 7, 424, 'frightened_citizen_quest');
 -- -1 658 000 ICC: PIT OF SARON
 INSERT INTO script_texts (entry,content_default,sound,type,language,emote,comment) VALUES
 (-1658001,'Intruders have entered the masters domain. Signal the alarms!',16747,1,0,0,'tyrannus SAY_TYRANNUS_INTRO_1'),
